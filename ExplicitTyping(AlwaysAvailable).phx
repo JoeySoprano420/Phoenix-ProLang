@@ -1,0 +1,2 @@
+let n: i32 = 42;
+let v: packet<f64>[1024] = aloc<packet<f64>[1024]>();
