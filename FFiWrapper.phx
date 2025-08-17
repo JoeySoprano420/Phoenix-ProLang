@@ -1,0 +1,11 @@
+ffi wrapper BLAS {
+  #[extern("c"), stamp(sig="dgemm(MxNxK) v1")]
+  fn dgemm(m:int,n:int,k:int, A:ptr double, B:ptr double, C:ptr double);
+}
+capsule LinalgSafe uses(Aligned, NonNull) {
+  fn gemm(A:sublease packet<double>, B:sublease packet<double>, C:lease packet<double>,
+          m:int,n:int,k:int) {
+    require Aligned(A,64) && Aligned(B,64) && Aligned(C,64);
+    BLAS::dgemm(m,n,k, &A[0],&B[0],&C[0]);
+  }
+}
