@@ -1,0 +1,3 @@
+let x: int = 10;
+lease y: float = 5.2;    // temporary ownership
+sublease z: string = "temp"; // borrowed scope ownership
