@@ -1,0 +1,1 @@
+fn sum<T: Add + Zero>(xs: view<T>) -> T { ... }
