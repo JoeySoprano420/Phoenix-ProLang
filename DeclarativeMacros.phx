@@ -1,0 +1,5 @@
+macro_rules! dbg {
+  ( $e:expr ) => { { let tmp = $e; print("[dbg] ", #$e, " = ", tmp); tmp } };
+}
+
+let v = dbg!(compute(x));  // prints expression & value
