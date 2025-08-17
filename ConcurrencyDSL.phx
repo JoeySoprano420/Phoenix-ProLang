@@ -1,0 +1,2 @@
+@pipeline(stages=["decode","transform","emit"], parallel=auto)
+fn process_stream(src: Reader, dst: Writer) { /* body elided */ }
