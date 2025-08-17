@@ -1,0 +1,2 @@
+class Box<T: Sized + Send> { inner: T }
+fn swap<T>(a: ref T, b: ref T) { let tmp = a; a = b; b = tmp; }
