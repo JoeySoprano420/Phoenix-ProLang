@@ -1,0 +1,1 @@
+let s = parse("5") : Result<i32, ParseErr>;
