@@ -1,0 +1,8 @@
+try {
+    eval risky_op();
+} catch (Error e) {
+    trace(e);
+    purge state;
+} except {
+    deny "Unhandled exception";
+}
