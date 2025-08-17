@@ -1,0 +1,6 @@
+meta struct ApiSpec { name:string; version:int; routes: [string] }
+
+@make_http_client(ApiSpec{
+  name:"Inventory", version:2, routes:["/get","/put","/del"]
+})
+module inv_client;
