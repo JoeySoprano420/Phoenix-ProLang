@@ -1,0 +1,3 @@
+lease buf: packet<byte>[1024] = aloc<packet<byte>[1024]>();
+sublease view = buf[0..256];     // read view
+release buf;                     // ends exclusive lease
