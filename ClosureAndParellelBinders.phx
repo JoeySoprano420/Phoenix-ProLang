@@ -1,0 +1,3 @@
+parallel for (i in 0..N) capture(=sublease arr, =move acc) {
+  acc += arr[i];
+}
