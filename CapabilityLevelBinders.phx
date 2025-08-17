@@ -1,0 +1,10 @@
+capsule NetSafe uses(Checksum, Bounds) {
+  validator checksum<T: Checksum>(t: T) => t.ok();
+  validator bounds(i:int, max:int) => 0 <= i && i < max;
+}
+
+with NetSafe as S {
+  let payload: packet<byte>[256];
+  S.checksum(payload);
+  S.bounds(42, 256);
+}
