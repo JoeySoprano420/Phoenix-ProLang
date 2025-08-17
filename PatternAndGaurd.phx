@@ -1,0 +1,4 @@
+match pkt {
+  Packet{ kind: "data", len: n } if n > 0 => handle(n),
+  _ => deny "empty or unknown"
+}
