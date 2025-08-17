@@ -1,0 +1,2 @@
+let q = Channel<int>(capacity:1024);
+spawn worker capture(=sublease q) { loop { let x = q.recv(); process(x); } }
