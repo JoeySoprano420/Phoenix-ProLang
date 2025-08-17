@@ -1,0 +1,7 @@
+parallel task worker {
+    loop i in range(0..cores) {
+        lock mutexA {
+            eval process(i);
+        }
+    }
+}
