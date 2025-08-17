@@ -1,0 +1,1 @@
+let x: i32 = assume<int>(d) where validator is_i32(d);
