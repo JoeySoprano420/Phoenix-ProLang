@@ -1,0 +1,7 @@
+#[proc_macro]
+fn derive_checksum(input: Ast<TypeDecl>) -> Ast<TypeDecl> {
+  // synthesize impl Checksum for the input type
+}
+
+@derive(checksum)
+class Packet { bytes: packet<byte>[N]; }
