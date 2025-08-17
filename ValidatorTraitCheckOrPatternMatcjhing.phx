@@ -1,0 +1,6 @@
+let d: dynamic = json::parse(src);
+match d {
+  as i: i64      => print(i+1),
+  as s: string   => print(len(s)),
+  _              => deny "unexpected type"
+}
