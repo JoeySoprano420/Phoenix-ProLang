@@ -1,0 +1,7 @@
+wrapper File {
+  priv fd: int;
+  init(path: string, mode: string) { fd = os::open(path, mode); }
+  drop() { os::close(fd); }
+  fn read(dst: sublease packet<byte>) -> int { os::read(fd, dst) }
+}
+let f = File("log.txt", "w");
