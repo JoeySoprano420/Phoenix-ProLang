@@ -1,0 +1,16 @@
+include/
+  phoenix_common.hpp
+  phoenix_types.hpp
+  phoenix_traits.hpp
+  phoenix_borrow.hpp
+  phoenix_meta.hpp
+  phoenix_ast.hpp
+  phoenix_parser.hpp
+
+src/
+  phoenix_types.cpp
+  phoenix_traits.cpp
+  phoenix_borrow.cpp
+  phoenix_meta.cpp
+  phoenix_parser.cpp
+  phoenix_driver.cpp
