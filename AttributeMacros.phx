@@ -1,0 +1,5 @@
+@profile(hot)
+@unroll(8)
+fn saxpy(a: float, x: sublease packet<float>, y: lease packet<float>) {
+  loop i in 0..len(x) { y[i] = a*x[i] + y[i]; }
+}
