@@ -1,0 +1,10 @@
+@import_c(
+  header = "math.h",
+  stamp  = "libm@v1",
+  fns = [
+    { name:"cos",  sig:"double(double)" },
+    { name:"sin",  sig:"double(double)" }
+  ])
+module cmath;
+
+let r = cmath::cos(1.0) + cmath::sin(1.0);
