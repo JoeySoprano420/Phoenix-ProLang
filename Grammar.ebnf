@@ -1,0 +1,14 @@
+binder      := "let" ident (":" type)? ("=" expr)? 
+             | "lease" ident (":" type)? ("=" expr)?
+             | "sublease" ident (":" type)? ("=" expr)?
+             | destruct
+
+destruct    := "{" field_bindings "}" | "(" tuple_bindings ")" | "[" array_bindings "]"
+
+macro_decl  := "macro_rules!" ident "{" macro_rule+ "}"
+macro_rule  := "(" matcher ")" "=>" block ";"
+
+attr        := "@" ident ("(" attr_args? ")")?
+attr_args   := (ident ":" literal | literal) ("," ... )*
+
+proc_macro  := "@proc_macro" "fn" ident "(" "input" ":" "Ast"<node> ")" "->" "Ast"<node> block
