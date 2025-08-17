@@ -1,0 +1,4 @@
+capsule SafeCalc {
+    let buffer: packet<int>[256];
+    validator range(buffer, 0..255);
+}
