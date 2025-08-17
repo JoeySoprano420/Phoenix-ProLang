@@ -1,0 +1,6 @@
+wrapper NonEmpty<T> where validator nonempty(v:T): bool {
+  priv v: T;
+  init(x:T) { assert(nonempty(x)); v = x; }
+  expose() -> T { v }
+}
+let s = NonEmpty("hi");     // ok
