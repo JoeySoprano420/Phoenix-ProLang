@@ -1,0 +1,27 @@
+@profile(hot)
+fn axpy(a: float, x: sublease packet<float>, y: lease packet<float>) {
+  @unroll(8)
+  loop i in 0..len(x) { y[i] = a*x[i] + y[i]; }
+}
+
+macro_rules! timed {
+  ( $blk:block ) => {{
+      let t0 = now();
+      $blk
+      let t1 = now();
+      print("dt = ", t1 - t0);
+  }};
+}
+
+wrapper Timer { init() { start(); } drop() { stop(); report(); } }
+
+fn main() {
+  let n = 1<<20;
+  lease x = aloc<packet<float>[n]>();
+  lease y = aloc<packet<float>[n]>();
+  {
+    let _t = Timer();                 // RAII wrapper
+    timed!({ axpy(2.0, x, y); });     // macro timing
+  }
+  release x; release y;
+}
