@@ -1,0 +1,7 @@
+if (x > 0) {
+    eval compute(x);
+} elif (x == 0) {
+    deny "zero not allowed";
+} else {
+    release y;
+}
