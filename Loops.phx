@@ -1,0 +1,6 @@
+loop i in range(0..100) {
+    ping(i);         // inline diagnostic
+    unroll(4) {      // force unroll factor 4
+        fold(acc += i);
+    }
+}
