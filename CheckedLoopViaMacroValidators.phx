@@ -1,0 +1,14 @@
+validator in_range(i:int, n:int) => 0 <= i && i < n;
+
+macro_rules! for_checked {
+  ( $i:ident in 0..$n:expr { $body:block } ) => {
+    { let __n = $n;
+      loop $i in 0..__n {
+        require in_range($i, __n);
+        $body
+      }
+    }
+  }
+}
+
+for_checked!(i in 0..len(a) { y[i] += a[i]; });
